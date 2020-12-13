@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
+use App\Models\Post;
+use App\Models\User;
 
 class PostsController extends Controller
 {
@@ -24,10 +27,17 @@ class PostsController extends Controller
             'image'=>['required', 'image'],
         ]);
 
-        dd(\request(ima))
+        $imagePath = request('image')->store('uploads', 'public');
 
-        auth()->user()->posts()->Create($data);
+        $image = Image::make(\public_path("storage/{$imagePath}"))->fit(1200, 1200);
+        $image->save();
 
-        dd(request()->all());
+        //The error highlighted below is from PHP Intelliphense but it's valid in Laravel
+        auth()->user()->posts()->create([
+            'caption' => $data['caption'],
+            'image' => $imagePath,
+        ]);
+
+        return \redirect('/profile/' . \auth()->user()->id);
     }
 }
