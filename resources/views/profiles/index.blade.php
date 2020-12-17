@@ -12,7 +12,7 @@
                         <div class="h4">
                             {{ $user->username }}
                         </div>
-                        <button class="btn btn-primary ml-4">Follow</button>
+                        <follow-button user-id="{{ $user->id }}"></follow-button>
                     </div>
                     @can('update', $user->profile)
                         <a href="/p/create">Add New Post</a>
