@@ -2,18 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\Host;
 
-class ComputerMeasurementsSystemsController extends Controller
+class HostsController extends Controller
 {
     //
-    //protected $guarded = [];
     public function index()
     {
         // return view('uni.index', [
         //     'user' => $user,
         // ]);
-        return \view('Uni.index');
+        // return \view('Uni.index');
+
+        $data = Host::all();
+        return view('Uni.index', [
+            'hosts' => $data
+        ]);
     }
 }
