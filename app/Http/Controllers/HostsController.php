@@ -4,10 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Host;
+use App\Models\User;
 
 class HostsController extends Controller
 {
-    //
+    // Protect route to only authenticated users
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         // return view('uni.index', [
@@ -19,5 +25,18 @@ class HostsController extends Controller
         return view('Uni.index', [
             'hosts' => $data
         ]);
+    }
+
+    public function edit(Host $check)
+    {
+        // $this->authorize('update', $host);
+        // $data = Host::all();
+        return view('Uni.edit_host', \compact('check'));
+        //\dd($check);
+    }
+
+    public function create()
+    {
+        return view('uni.add_host');
     }
 }

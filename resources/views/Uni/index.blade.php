@@ -44,7 +44,7 @@
                             <td>{{ $host->user->name }}</td>
                             <td>{{ $host['total_checks'] }}</td>
                             <td><a role="button" class="btn btn-primary"
-                                    href="hosts/{{ Auth::user()->id }}/{{ $host->id }}/edit">Edit</a></td>
+                                    href="hosts/{{ $host->id }}/edit">Edit</a></td>
                         </tr>
                     @endforeach
                 </tbody>

@@ -37,13 +37,13 @@ Route::patch('/profile/{user}', [\App\Http\Controllers\ProfilesController::class
 
 //CMS Stuff
 //University work semester6 page
-Route::get('/uws62020', function () {
-    return view();
-});
+// Route::get('/uws62020', function () {
+//     return view();
+// });
 
 Route::get('/uws62020/cms/hosts', [\App\Http\Controllers\HostsController::class, 'index'])->name('host.show');
-Route::get('/uws62020/cms/hosts/{user}/add', [\App\Http\Controllers\AddHostController::class, 'create'])->name('host.create');
-Route::get('/uws62020/cms/hosts/{user}/{check}/edit', [\App\Http\Controllers\EditHostController::class, 'edit'])->name('host.edit');
+Route::get('/uws62020/cms/hosts/{user}/add', [\App\Http\Controllers\HostsController::class, 'create'])->name('host.create');
+Route::get('/uws62020/cms/hosts/{check}/edit', [\App\Http\Controllers\HostsController::class, 'edit'])->name('host.edit');
 
 //Admin routes
 // Route::get('/admin/users', [\App\Http\Controllers\UsersController::class, 'show'])->name('user.show');
