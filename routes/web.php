@@ -41,9 +41,11 @@ Route::patch('/profile/{user}', [\App\Http\Controllers\ProfilesController::class
 //     return view();
 // });
 
-Route::get('/uws62020/cms/hosts', [\App\Http\Controllers\HostsController::class, 'index'])->name('host.show');
-Route::get('/uws62020/cms/hosts/{user}/add', [\App\Http\Controllers\HostsController::class, 'create'])->name('host.create');
-Route::get('/uws62020/cms/hosts/{check}/edit', [\App\Http\Controllers\HostsController::class, 'edit'])->name('host.edit');
+Route::get('/uws62020/cms/hosts', [\App\Http\Controllers\HostsController::class, 'index'])->name('check.show');
+Route::get('/uws62020/cms/hosts/{user}/add', [\App\Http\Controllers\HostsController::class, 'create'])->name('check.create');
+Route::get('/uws62020/cms/hosts/{check}/edit', [\App\Http\Controllers\HostsController::class, 'edit'])->name('check.edit');
+Route::patch('/uws62020/cms/hosts/{check}', [\App\Http\Controllers\HostsController::class, 'update'])->name('check.update');
+
 
 //Admin routes
 // Route::get('/admin/users', [\App\Http\Controllers\UsersController::class, 'show'])->name('user.show');

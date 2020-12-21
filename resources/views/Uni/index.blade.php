@@ -43,8 +43,7 @@
                             <td>{{ $host['total_downtime'] }}</td>
                             <td>{{ $host->user->name }}</td>
                             <td>{{ $host['total_checks'] }}</td>
-                            <td><a role="button" class="btn btn-primary"
-                                    href="hosts/{{ $host->id }}/edit">Edit</a></td>
+                            <td><a role="button" class="btn btn-primary" href="hosts/{{ $host->id }}/edit">Edit</a></td>
                         </tr>
                     @endforeach
                 </tbody>
@@ -52,5 +51,8 @@
         </div>
         <a role="button" class="btn btn-primary" href="hosts/{{ Auth::user()->id }}/add">Add Check</a>
         <button type="button" class="btn btn-primary">Export Table</button>
+        {{-- @if (session('status'))
+            {{ session('status') }}
+        @endif --}}
     </div>
 @endsection

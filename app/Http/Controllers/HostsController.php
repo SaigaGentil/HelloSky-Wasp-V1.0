@@ -39,4 +39,18 @@ class HostsController extends Controller
     {
         return view('uni.add_host');
     }
+
+    public function update(Host $check)
+    {
+        $data = \request()->validate([
+            'check_name' => 'required',
+            'address' => 'url',
+            'port' => 'required',
+        ]);
+        // \dd($data);
+
+        $check->update($data);
+
+        return \redirect('/uws62020/cms/hosts')->with('status', 'Success, check updated!');
+    }
 }
