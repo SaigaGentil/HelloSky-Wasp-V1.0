@@ -42,3 +42,9 @@ Route::get('/uws62020', function () {
 });
 
 Route::get('/uws62020/cms/hosts', [\App\Http\Controllers\HostsController::class, 'index'])->name('host.show');
+Route::get('/uws62020/cms/hosts/{user}/add', [\App\Http\Controllers\AddHostController::class, 'create'])->name('host.create');
+Route::get('/uws62020/cms/hosts/{user}/{check}/edit', [\App\Http\Controllers\EditHostController::class, 'edit'])->name('host.edit');
+
+//Admin routes
+// Route::get('/admin/users', [\App\Http\Controllers\UsersController::class, 'show'])->name('user.show');
+// Route::get('/admin/history', [\App\Http\Controllers\LoginHistoryController::class, 'show'])->name('loginHistory.show');
