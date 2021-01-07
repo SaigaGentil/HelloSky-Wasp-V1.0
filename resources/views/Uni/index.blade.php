@@ -7,10 +7,10 @@
                 <a class="nav-link active" href="#">Hosts Check</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Login History</a>
+                <a class="nav-link" href="/admin/login-history">Login History</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Users</a>
+                <a class="nav-link" href="/admin/users">Users</a>
             </li>
         </ul>
         <div class="table-responsive pt-3">
@@ -31,14 +31,27 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @php
+                    $attempts = 0;
+                    @endphp
                     @foreach ($hosts as $host)
+                        @php
+                        $hostPing = @fsockopen($host->address, $host->port, $errno, $errstr, 30);
+                        if ($hostPing) {
+                        $status = "UP";
+                        }
+                        else{
+                        $status = "DOWN";
+                        }
+
+                        @endphp
                         <tr>
                             <th scope="row">{{ $host->id }}</th>
                             <td>{{ $host['updated_at'] }}</td>
                             <td>{{ $host['check_name'] }}</td>
                             <td>{{ $host['address'] }}</td>
                             <td>{{ $host['port'] }}</td>
-                            <td>{{ $host['check_status'] }}</td>
+                            <td>{{ $status }}</td>
                             <td>Not Set</td>
                             <td>{{ $host['total_downtime'] }}</td>
                             <td>{{ $host->user->name }}</td>

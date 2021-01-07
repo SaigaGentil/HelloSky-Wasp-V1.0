@@ -44,7 +44,7 @@ class HostsController extends Controller
     {
         $data = \request()->validate([
             'check_name' => 'required',
-            'address' => 'url',
+            'address' => 'required',
             'port' => 'required',
         ]);
         // \dd($data);
@@ -53,4 +53,23 @@ class HostsController extends Controller
 
         return \redirect('/uws62020/cms/hosts')->with('status', 'Success, check updated!');
     }
+
+    public function store()
+    {
+        $data = \request()->validate([
+            'check_name' => 'required',
+            'address' => 'required',
+            'port' => 'required',
+        ]);
+
+        \auth()->user()->hosts()->create([
+            'check_name' => $data['check_name'],
+            'address' => $data['address'],
+            'port' => $data['port'],
+        ]);
+
+        return \redirect('/uws62020/cms/hosts');
+    }
+
+    // public static pingHost
 }

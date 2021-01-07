@@ -2,7 +2,9 @@
 
 @section('content')
     <div class="container">
-        <form>
+        <form action="/uws62020/cms/hosts/insert" enctype="multipart/form-data" method="POST">
+            @csrf
+
             <div class="row">
                 <div class="col-8 offset-2">
 
@@ -11,23 +13,58 @@
                     </div>
 
                     <div class="form-group row">
-                        <label>Check Name</label>
-                        <input type="text" class="form-control" id="check-name" placeholder="e.g: MSSQL Database">
+                        <label for="check-id">Check ID</label>
+                        <input type="text" class="form-control" id="check-name" placeholder="1" name="check-id"
+                            value="Autofilled" readonly>
                     </div>
 
                     <div class="form-group row">
-                        <label>Host / Website</label>
-                        <input type="text" class="form-control" id="check-address"
-                            placeholder="e.g: www.google.com or google.com">
+                        <label for="check_name">Check Name</label>
+                        <input type="text" class="form-control @error('check_name') is-invalid @enderror" id="check_name"
+                            placeholder="e.g: MSSQL Database" name="check_name" value="{{ old('check_name') }}"
+                            autocomplete="check_name" autofocus>
+
+                        @error('check_name')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
 
                     <div class="form-group row">
-                        <label>Port</label>
-                        <input type="text" class="form-control" id="check-port" placeholder="e.g: 80 or 443">
+                        <label for="address">Host / Website</label>
+                        <input type="text" class="form-control @error('address') is-invalid @enderror" id="address"
+                            placeholder="e.g: www.google.com or google.com" name="address" value="{{ old('address') }}"
+                            autocomplete="url" autofocus>
+
+                        @error('address')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
 
                     <div class="form-group row">
-                        <label>Visibility</label>
+                        <label for="port">Port</label>
+                        <input type="text" class="form-control @error('port') is-invalid @enderror" id="port"
+                            placeholder="e.g: 80 or 443" name="port" value="{{ old('port') }}" autocomplete="port"
+                            autofocus>
+
+                        @error('port')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="check-id">User</label>
+                        <input type="text" class="form-control" id="username" placeholder="1" name="check-id"
+                            value="{{ Auth::user()->username }}" readonly>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="check-visibility">Visibility</label>
                         <select class="custom-select">
                             <option value="global" selected>Everyone</option>
                             <option value="own">Only me</option>

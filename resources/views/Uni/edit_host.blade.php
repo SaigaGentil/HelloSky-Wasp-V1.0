@@ -59,6 +59,12 @@
                     </div>
 
                     <div class="form-group row">
+                        <label for="check-id">User</label>
+                        <input type="text" class="form-control" id="check-name" placeholder="1" name="check-id"
+                            value="{{ $check->user->username }}" readonly>
+                    </div>
+
+                    <div class="form-group row">
                         <label for="check-visibility">Visibility</label>
                         <select class="custom-select">
                             <option value="global" selected>Everyone</option>
