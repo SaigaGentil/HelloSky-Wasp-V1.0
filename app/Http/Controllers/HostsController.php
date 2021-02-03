@@ -37,7 +37,7 @@ class HostsController extends Controller
 
     public function create()
     {
-        return view('uni.add_host');
+        return view('Uni.add_host');
     }
 
     public function update(Host $check)
