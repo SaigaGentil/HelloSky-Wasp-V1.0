@@ -14,6 +14,6 @@ class AdminController extends Controller
 
     public function showLoginHistory()
     {
-        return view('admin.login_history');
+        return view('Admin.login_history');
     }
 }
