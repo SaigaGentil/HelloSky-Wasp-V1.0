@@ -7,6 +7,9 @@
                 <a class="nav-link active" href="#">Hosts Check</a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="/iot/index">Home IoT Devices</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="/admin/login-history">Login History</a>
             </li>
             <li class="nav-item">

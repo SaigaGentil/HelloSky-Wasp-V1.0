@@ -53,3 +53,7 @@ Route::patch('/uws62020/cms/hosts/{check}', [\App\Http\Controllers\HostsControll
 //Admin routes
 Route::get('/admin/users', [\App\Http\Controllers\AdminController::class, 'showUsers'])->name('user.show');
 Route::get('/admin/login-history', [\App\Http\Controllers\AdminController::class, 'showLoginHistory'])->name('loginHistory.show');
+
+Route::get('/iot/index', function () {
+    return view('iot/index');
+});

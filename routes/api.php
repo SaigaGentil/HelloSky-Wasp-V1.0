@@ -23,6 +23,7 @@ Route::post('/', function (Request $request) {
         "arduino-log.txt",
         "Time: " . now()->format("Y-m-d H:i:s") . ', ' .
             "Temperature: " . $request->get("temperature", "n/a") . '°C, ' .
-            "Humidity: " . $request->get("humidity", "n/a") . '%'
+            "Humidity: " . $request->get("humidity", "n/a") .
+            '% ' . "Status: " . $request->get("dhtStatus", "n/a")
     );
 });
