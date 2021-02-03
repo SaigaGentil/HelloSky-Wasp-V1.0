@@ -9,7 +9,7 @@ class AdminController extends Controller
     //
     public function showUsers()
     {
-        return view('admin.users');
+        return view('Admin.users');
     }
 
     public function showLoginHistory()
