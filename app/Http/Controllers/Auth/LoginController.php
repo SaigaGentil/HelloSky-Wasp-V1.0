@@ -37,4 +37,20 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    // public function index()
+    // {
+    //     // return view('uni.index', [
+    //     //     'user' => $user,
+    //     // ]);
+    //     // return \view('Uni.index');
+
+    //     $data = History::all();
+    //     return view('Admin.login_history', [
+    //         'history' => $data
+    //     ]);
+
+
+    // }
+
 }
