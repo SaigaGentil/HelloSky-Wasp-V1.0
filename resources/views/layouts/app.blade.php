@@ -27,7 +27,7 @@
             <div class="container">
                 <a class="navbar-brand d-flex" href="{{ url('/') }}">
                     <div style="border-right: 1px solid #333333;" class="pr-3">HelloSky</div>
-                    <div class="pl-3">Wasp</div>
+                    <div class="pl-3">Patryk</div>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
